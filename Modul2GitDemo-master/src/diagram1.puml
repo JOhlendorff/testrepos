@@ -1,0 +1,22 @@
+@startuml
+
+title "Login - Sequence Diagram"
+
+actor User
+boundary Login.jsp
+boundary CustHomePage.jsp
+participant LoginServlet
+participant UserTableManager
+database ShopDatabase
+
+User -> Login.jsp : username & password
+Login.jsp -> LoginServlet: http POST login
+LoginServlet -> UserTableManager: validate()
+UserTableManager -> ShopDatabase: executeQuery()
+ShopDatabase -> UserTableManager: resultset
+UserTableManager -> UserTableManager: validate resultset
+UserTableManager -> LoginServlet: OK
+LoginServlet -> CustHomePage.jsp: forward
+CustHomePage.jsp -> User: Welcome
+
+@enduml
