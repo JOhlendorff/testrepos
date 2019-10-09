@@ -12,6 +12,11 @@ import java.sql.SQLException;
 public class DBConnector {
 
    
+    private static String url = "jdbc:mysql://206.189.57.7:3306/classicmodels";
+    private static String username = "batman";
+
+    private static String password = "Password123!";
+    
     /*jdbc.driver=com.mysql.jdbc.Driver
 jdbc.url=jdbc:mysql://206.189.57.7:3306/bookshop
 jdbc.username=batman
